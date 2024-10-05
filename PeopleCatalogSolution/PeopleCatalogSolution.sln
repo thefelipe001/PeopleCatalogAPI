@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalogSolution", "PeopleCatalogSolution\PeopleCatalogSolution.csproj", "{85B3391A-6954-4442-A18C-E0D378B1063C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleCatalogSolution", "PeopleCatalogSolution\PeopleCatalogSolution.csproj", "{85B3391A-6954-4442-A18C-E0D378B1063C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalog.Domain", "PeopleCatalog.Domain\PeopleCatalog.Domain.csproj", "{1E594933-0EAC-46B9-9A83-BDDE959A69CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleCatalog.Domain", "PeopleCatalog.Domain\PeopleCatalog.Domain.csproj", "{1E594933-0EAC-46B9-9A83-BDDE959A69CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalog.Application", "PeopleCatalog.Application\PeopleCatalog.Application.csproj", "{26FC6B13-8268-4389-BEE2-A90D105C6283}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleCatalog.Application", "PeopleCatalog.Application\PeopleCatalog.Application.csproj", "{26FC6B13-8268-4389-BEE2-A90D105C6283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalog.Infrastructure", "PeopleCatalog.Infrastructure\PeopleCatalog.Infrastructure.csproj", "{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleCatalog.Infrastructure", "PeopleCatalog.Infrastructure\PeopleCatalog.Infrastructure.csproj", "{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalog.Tests", "PeopleCatalog.Tests\PeopleCatalog.Tests.csproj", "{A2A33C46-2794-4A61-ADB9-6A8C910C4087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
