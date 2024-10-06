@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "people": [
+    {
+      "id": 1,
+      "firstName": "felipe",
+      "lastName": "mejia",
+      "email": "mejia@gmail.com",
+      "dateOfBirth": "2024-10-05T16:47:13.38",
+      "phoneNumber": "8299012050",
+      "street": "La restauracion",
+      "city": "Santo Domingo",
+      "postalCode": "12"
+    }
+   
+  ]
+}

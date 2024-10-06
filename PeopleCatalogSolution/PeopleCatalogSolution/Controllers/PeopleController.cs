@@ -10,75 +10,106 @@ namespace PeopleCatalog.API.Controllers
     {
         private readonly IPersonService _personService;
 
-        // Constructor donde se inyecta el servicio IPersonService
         public PeopleController(IPersonService personService)
         {
             _personService = personService;
         }
 
-        // Obtener todas las personas
         [HttpGet]
         public async Task<IActionResult> GetAllPeople()
         {
-            var people = await _personService.GetAllPeople();
-            return Ok(people);
+            try
+            {
+                var people = await _personService.GetAllPeople();
+                return Ok(people);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener la lista de personas: {ex.Message}");
+            }
         }
 
-        // Obtener una persona por su ID
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPersonById(int id)
         {
-            var person = await _personService.GetPersonById(id);
-            if (person == null)
+            try
             {
-                return NotFound();
+                var person = await _personService.GetPersonById(id);
+                if (person == null)
+                {
+                    return NotFound(new { message = $"Persona con ID {id} no encontrada." });
+                }
+                return Ok(person);
             }
-            return Ok(person);
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener la persona: {ex.Message}");
+            }
         }
 
-        // Crear una nueva persona
+
         [HttpPost]
         public async Task<IActionResult> CreatePerson([FromBody] PersonDto personDto)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new { message = "Los datos enviados no son válidos.", errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)) });
+                }
 
-            var personId = await _personService.CreatePerson(personDto);
-            return CreatedAtAction(nameof(GetPersonById), new { id = personId }, personDto);
+                var personId = await _personService.CreatePerson(personDto);
+                return CreatedAtAction(nameof(GetPersonById), new { id = personId }, personDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al crear la persona: {ex.Message}");
+            }
         }
 
-        // Actualizar una persona
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePerson(int id, [FromBody] PersonDto personDto)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new { message = "Los datos enviados no son válidos.", errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)) });
+                }
 
-            var result = await _personService.UpdatePerson(id, personDto);
-            if (!result)
+                var result = await _personService.UpdatePerson(id, personDto);
+                if (!result)
+                {
+                    return NotFound(new { message = $"Persona con ID {id} no encontrada para actualización." });
+                }
+
+                return NoContent();
+            }
+            catch (Exception ex)
             {
-                return NotFound();
+                return StatusCode(500, $"Error al actualizar la persona: {ex.Message}");
             }
-
-            return NoContent();
         }
 
-        // Eliminar una persona
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePerson(int id)
         {
-            var result = await _personService.DeletePerson(id);
-            if (!result)
+            try
             {
-                return NotFound();
-            }
+                var result = await _personService.DeletePerson(id);
+                if (!result)
+                {
+                    return NotFound(new { message = $"Persona con ID {id} no encontrada para eliminación." });
+                }
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al eliminar la persona: {ex.Message}");
+            }
         }
     }
 }
-

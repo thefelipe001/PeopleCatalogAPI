@@ -10,6 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Configurar servicios
 builder.Services.AddControllers();
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 // Configurar Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -34,6 +46,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Habilitar CORS
+app.UseCors("AllowAllOrigins");
 
 app.UseAuthorization();
 

@@ -1,0 +1,111 @@
+<mat-toolbar color="primary">
+  <span>Catálogo de Personas</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="accent" (click)="openAddEditEmpForm()">
+    Agregar Personas
+  </button>
+</mat-toolbar>
+
+<div class="main-body">
+  <!-- Filtro -->
+  <mat-form-field appearance="fill">
+    <mat-label>Búsqueda</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por nombre, correo, etc." #input>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+        <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon>email</mat-icon> {{ row.email }}
+        </td>
+      </ng-container>
+
+      <!-- DateOfBirth Column -->
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Nacimiento </th>
+        <td mat-cell *matCellDef="let row"> {{row.dateOfBirth | date:'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <!-- PhoneNumber Column -->
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon>phone</mat-icon> {{ row.phoneNumber }}
+        </td>
+      </ng-container>
+
+      <!-- Street Column -->
+      <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef> Calle </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.street }}
+        </td>
+      </ng-container>
+      
+      <!-- City Column -->
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.city }}
+        </td>
+      </ng-container>
+
+      <!-- PostalCode Column -->
+      <ng-container matColumnDef="postalCode">
+        <th mat-header-cell *matHeaderCellDef> Código Postal </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.postalCode }}
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="openEditForm(row)" matTooltip="Editar">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteEmployee(row.id)" matTooltip="Eliminar">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Table Header and Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- No data row -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+          No se encontraron resultados para "{{input.value}}".
+        </td>
+      </tr>
+    </table>
+
+    <!-- Paginador -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
