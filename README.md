@@ -76,3 +76,5 @@ Abre la carpeta angular-crud-app con Visual Studio Code. En el terminal, ejecuta
 
 
 ![alt text](image-2.png)
+
+![alt text](image.png)
