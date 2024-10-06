@@ -9,6 +9,9 @@ Esta es una API para gestionar un catálogo de personas, implementada utilizando
 - Docker
 - Docker Compose
 - MySQL
+- Angular CLI (v12 o superior)
+- Node.js (v14 o superior)
+
 
 ## Configuración
 
@@ -58,7 +61,18 @@ dotnet test
 ```
 
 ## Detalles técnicos
-- Lenguaje: C#
+- Lenguaje: C# Backend & Angular Frontend
 - Framework: .NET 6
 - Base de datos: MySQL
 - Patrones: Clean Architecture, CQRS, Mediator
+
+
+### 7. Corrida Frontend
+
+Abre la carpeta angular-crud-app con Visual Studio Code. En el terminal, ejecuta npm install y luego ng serve, asegurándote de que la API esté corriendo en la siguiente URL abrir frontend:
+
+- `http://localhost:4200`
+
+
+
+![alt text](image-2.png)
