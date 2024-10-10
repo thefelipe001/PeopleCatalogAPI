@@ -10,6 +10,8 @@ namespace PeopleCatalog.Infrastructure.Data
 
         // Definición de las tablas
         public DbSet<Person> People { get; set; }
+        public DbSet<PersonSummary> PersonSummaries { get; set; }
+
 
         // Método para configurar las tablas y los SPs
         protected override void OnModelCreating(ModelBuilder modelBuilder)

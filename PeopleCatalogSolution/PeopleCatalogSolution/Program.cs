@@ -4,6 +4,7 @@ using PeopleCatalog.Infrastructure.Repositories;
 using PeopleCatalog.Application.Interfaces;
 using PeopleCatalog.Application.Services;
 using PeopleCatalog.Domain.Interfaces;
+using PeopleCatalog.Application.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,8 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 29))));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly, typeof(CreatePersonCommandHandler).Assembly));
+
 
 // Registrar los servicios de la aplicación
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();

@@ -111,5 +111,8 @@ namespace PeopleCatalog.API.Controllers
                 return StatusCode(500, $"Error al eliminar la persona: {ex.Message}");
             }
         }
+
+
+
     }
 }

@@ -18,5 +18,6 @@ namespace PeopleCatalog.Application.Interfaces
 
         // Eliminar una persona
         Task<bool> DeletePerson(int id);
+
     }
 }
