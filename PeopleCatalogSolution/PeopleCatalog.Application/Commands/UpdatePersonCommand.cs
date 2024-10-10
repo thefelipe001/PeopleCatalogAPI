@@ -2,7 +2,7 @@
 
 namespace PeopleCatalog.Application.Commands
 {
-    public class UpdatePersonCommand : IRequest<bool>
+    public class UpdatePersonCommand : IRequest<bool>// El tipo de retorno un bool
     {
         public int? Id { get; set; }
         public string? FirstName { get; set; }

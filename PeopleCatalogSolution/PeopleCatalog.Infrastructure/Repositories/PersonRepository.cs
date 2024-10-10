@@ -48,18 +48,22 @@ namespace PeopleCatalog.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
-        // Ejecutar un Stored Procedure para obtener personas mayores a una cierta edad
         public async Task<List<Person>> GetPeopleAboveAge(int ageLimit)
         {
+            await _context.Database.ExecuteSqlRawAsync("CALL GetPeopleAboveOrEqualAge({0})", ageLimit);
+
+            // Query de tabla temporal
             return await _context.People
-                .FromSqlRaw("CALL GetPeopleAboveAge({0})", ageLimit)
+                .FromSqlRaw("SELECT * FROM PersistentPeople")
                 .ToListAsync();
         }
 
+
+
         // Consultar la vista PersonSummary
-        public async Task<List<Domain.Entities.PersonSummary>> GetPersonSummariesAsync()
+        public async Task<List<PersonSummary>> GetPersonSummariesAsync()
         {
-            return await _context.Set<Domain.Entities.PersonSummary>().ToListAsync();
+            return await _context.Set<PersonSummary>().ToListAsync();
         }
     }
 }

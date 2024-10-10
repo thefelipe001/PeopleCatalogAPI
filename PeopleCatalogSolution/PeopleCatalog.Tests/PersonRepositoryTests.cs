@@ -1,8 +1,6 @@
 ﻿using Moq;
 using PeopleCatalog.Domain.Entities;
 using PeopleCatalog.Domain.Interfaces;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 public class PersonRepositoryTests

@@ -3,8 +3,7 @@ using Moq;
 using PeopleCatalog.API.Controllers;
 using PeopleCatalog.Application.DTOs;
 using PeopleCatalog.Application.Interfaces;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 using Xunit;
 
 public class ApiTests
@@ -57,7 +56,7 @@ public class ApiTests
         };
 
         _mockPersonService.Setup(service => service.GetPersonById(1))
-            .ReturnsAsync(personDto); 
+            .ReturnsAsync(personDto);
 
 
         // Act

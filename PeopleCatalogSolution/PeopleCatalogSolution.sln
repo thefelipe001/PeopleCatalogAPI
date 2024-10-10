@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleCatalog.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleCatalog.Infrastructure", "PeopleCatalog.Infrastructure\PeopleCatalog.Infrastructure.csproj", "{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalog.Tests", "PeopleCatalog.Tests\PeopleCatalog.Tests.csproj", "{A2A33C46-2794-4A61-ADB9-6A8C910C4087}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleCatalog.Test", "PeopleCatalog.Test\PeopleCatalog.Test.csproj", "{3CC10B2F-0905-44F4-B17D-B075043462C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8B31CDF-DD55-416B-9A6F-D2D1DE5E8FFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2A33C46-2794-4A61-ADB9-6A8C910C4087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC10B2F-0905-44F4-B17D-B075043462C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC10B2F-0905-44F4-B17D-B075043462C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC10B2F-0905-44F4-B17D-B075043462C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC10B2F-0905-44F4-B17D-B075043462C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@ using PeopleCatalog.Application.Commands;
 using PeopleCatalog.Application.Queries;
 using PeopleCatalog.Application.DTOs;
 using MediatR;
+using PeopleCatalog.Domain.Exceptions;
 
 namespace PeopleCatalog.API.Controllers
 {
@@ -160,6 +161,48 @@ namespace PeopleCatalog.API.Controllers
             }
           
         }
+
+
+        //Consultar las Personas mayores de Edad
+        [HttpGet("age/{age}")]
+        public async Task<IActionResult> GetPersonByAge(int age)
+        {
+            try
+            {
+                var people = await _mediator.Send(new GetPersonByAgeQuery(age));
+
+                // Verifica si la lista está vacía
+                if (people == null || !people.Any())
+                {
+                    return NotFound(new { message = $"No se encontró ninguna persona con la edad de {age} o mayor." });
+                }
+
+                return Ok(people);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener la lista de personas: {ex.Message}");
+            }
+        }
+
+
+        // Obtener todas las personas
+        [HttpGet("GetAllPeopleforView")]
+        public async Task<IActionResult> GetAllPeopleforView()
+        {
+            try
+            {
+                var people = await _mediator.Send(new GetAllPeopleViewQuery());
+                return Ok(people);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener la lista de personas: {ex.Message}");
+            }
+
+
+        }
+
 
 
     }
